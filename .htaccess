@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteRule ^$ index.php [L]
+RewriteRule ^konfirmasi$ index.php?content=konfirmasi-akun [L]
+RewriteRule ^konfirmasi/(.*)$ index.php?content=konfirmasi-akun&email=$1 [L]
+
+</IfModule>
