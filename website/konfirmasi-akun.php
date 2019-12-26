@@ -60,11 +60,11 @@ if (isset($_GET['email'])) {
 	  		<div class="row justify-content-center pb-3">
 				<div class="col-md-12 text-center heading-section ftco-animate">
 					<!-- <span class="subheading">Speaker</span> -->
-					<h2 class="mb-4">Akun Anda telah terverifikasi <?php echo $email;?><span></h2>
+					<h2 class="mb-4">Akun Anda telah terverifikasi<span></h2>
 					<h4 >Silahkan melakukan pembayaran sebesar <b style="color: #6a76fe;">Rp 3.300.000,-.</b></h4>
 					<h5>
 						Dana dapat disalurkan ke <b>No.Rekening:</b>
-						<ul>
+						<ul style="list-style:none">
 							<li>
 								<b style="color: #5ed964;">BNI (0899162399 a.n Roesfiansjah Rasjidin)</b>
 							</li>
@@ -119,7 +119,7 @@ if (isset($_GET['email'])) {
 					<!-- <span class="subheading">Speaker</span> -->
 					<h2 class="mb-4">Jika sudah melakukan pembayaran<span></h2>
                     <h4 >Silahkan melakukan konfirmasi melalui WhatsApp ke <b>Nomor Berikut:</b>
-                        <ul>
+                        <ul style="list-style:none">
 							<li>
 								<b style="color: #5ed964;">+628977000090 (Ari)</b>
 							</li>
@@ -283,7 +283,7 @@ if (isset($_GET['email'])) {
 					<!-- <span class="subheading">Speaker</span> -->
 					<h2 class="mb-4">Jika sudah melakukan pembayaran<span></h2>
                     <h4 >Silahkan melakukan konfirmasi melalui WhatsApp ke <b>Nomor Berikut:</b>
-                        <ul>
+                        <ul style="list-style:none">
 							<li>
 								<b style="color: #5ed964;">+628977000090 (Ari)</b>
 							</li>
