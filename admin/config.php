@@ -21,12 +21,7 @@ if ($mysqli->connect_error) {
 function base_url($var)
 {
     // $url = "http://localhost/merajut-nusantara/".$var;
-    // $url = "http://merajutnusantara2020.com/".$var;
-    // return $url;
-    $url = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
-    $url .= "://" . $_SERVER['SERVER_NAME'];
-    $url .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
-    $url .= $var;
+    $url = "http://merajutnusantara2020.com/".$var;
     return $url;
 }
 
