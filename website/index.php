@@ -320,16 +320,16 @@ require 'vendor/autoload.php';
 												$mail->isSMTP();                                            // Send using SMTP
 												$mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
 												$mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-												$mail->Username   = 'bayuagung100@gmail.com';                     // SMTP username
-												$mail->Password   = 'Bayuagung@123';                               // SMTP password
+												$mail->Username   = 'merajutnusantara2020@gmail.com';                     // SMTP username
+												$mail->Password   = 'xEwzef-cywza7-hawbaj';                               // SMTP password
 												$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
 												$mail->Port       = 587;                                    // TCP port to connect to
 											
 												//Recipients
-												$mail->setFrom('bayuagung100@gmail.com', 'Merajut Nusantara III 2020');
-												$mail->addAddress('smileyoudontcry100@gmail.com');     // Add a recipient
+												$mail->setFrom('merajutnusantara2020@gmail.com', 'Merajut Nusantara III 2020');
+												$mail->addAddress($email);     // Add a recipient
 												//$mail->addAddress('ellen@example.com');               // Name is optional
-												$mail->addReplyTo('info@merajutnusantara2020.com', 'Merajut Nusantara III 2020');
+												$mail->addReplyTo('merajutnusantara2020@gmail.com', 'Merajut Nusantara III 2020');
 												//$mail->addCC('cc@example.com');
 												//$mail->addBCC('bcc@example.com');
 											

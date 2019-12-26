@@ -5,7 +5,7 @@ if (isset($_GET['email'])) {
     $cek = $mysqli->query("SELECT * FROM pendaftar WHERE email='$email'");
     $jml = $cek->num_rows;
     if ($jml>0) {
-        $query = $mysqli->query("UPDATE pendaftar SET konfirmasi_email='Y' ");
+        $query = $mysqli->query("UPDATE pendaftar SET konfirmasi_email='Y' WHERE email='$email' ");
 ?>
 <!DOCTYPE html>
 <html lang="en">
