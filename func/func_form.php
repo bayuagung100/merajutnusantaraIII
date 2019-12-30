@@ -41,6 +41,36 @@ function buat_textarea($label, $nama, $nilai, $place){
 		 ';
 }
 
+function buat_rowtabsbuka(){
+    echo'
+    <div class="form-group row">
+    ';
+}
+function buat_rowtabstutup(){
+    echo'
+    </div>
+    ';
+}
+
+function buat_label($label, $lebar){
+    echo'
+    <label class="col-sm-'.$lebar.'" control-label">'.$label.'</label>
+    ';
+}
+
+function buat_col($nilai, $lebar){
+    echo'
+    <div class="col-sm-'.$lebar.'">'.$nilai.'</div>
+    ';
+}
+function buat_tag($label, $nilai, $lebar='4'){
+	echo'<div class="form-group">
+			<label class="col-sm-2 control-label">'.$label.'</label>
+			<div class="col-sm-'.$lebar.'">'.$nilai.'</div>
+		 </div>
+		 ';
+}
+
 function buat_inlinebuka(){
     echo'<div class="form-group row">';
 }
@@ -162,6 +192,17 @@ function tutup_form($link){
 				</button>
 				<a class="btn btn-warning" href="'.$link.'">
 					<i class="glyphicon glyphicon-arrow-left"></i> Batal 
+				</a>
+			</div>
+		</div>
+	</form>';
+}
+
+function tutup_form_bukti($link){
+	echo'<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<a class="btn btn-warning" href="'.$link.'">
+					<i class="glyphicon glyphicon-arrow-left"></i> Kembali 
 				</a>
 			</div>
 		</div>

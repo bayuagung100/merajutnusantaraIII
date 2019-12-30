@@ -241,6 +241,7 @@ require 'vendor/autoload.php';
 			  if(isset($_POST['submit'])=="Daftar"){
 				$kampus = ucwords($_POST['kampus']);
 				$jurusan = ucwords($_POST['jurusan']);
+				$jenis_peserta = $_POST['peserta'];
 
 				$ktm = $_FILES['ktm']['name'];
 				$type_ktm = $_FILES['ktm']['type'];
@@ -266,6 +267,9 @@ require 'vendor/autoload.php';
 				$email = $_POST['email'];
 				$alamat = $_POST['alamat'];
 				$bidang = $_POST['bidang'];
+				$asuransi = $_POST['asuransi'];
+				$penyakit = $_POST['penyakit'];
+				$alasan = $_POST['alasan'];
 
 				$cek = $mysqli->query("SELECT * FROM pendaftar WHERE email='$email' ");
 				$jml = $cek->num_rows;
@@ -284,6 +288,7 @@ require 'vendor/autoload.php';
 											(
 												kampus,
 												jurusan,
+												jenis_peserta,
 												foto_ktm,
 												minat,
 												nama,
@@ -294,12 +299,17 @@ require 'vendor/autoload.php';
 												email,
 												alamat,
 												bidang,
-												konfirmasi_email
+												asuransi,
+												penyakit,
+												alasan,
+												konfirmasi_email,
+												status_pembayaran
 											)
 											VALUES
 											(
 												'$kampus',
 												'$jurusan',
+												'$jenis_peserta',
 												'$ktm',
 												'$minat',
 												'$nama',
@@ -310,6 +320,10 @@ require 'vendor/autoload.php';
 												'$email',
 												'$alamat',
 												'$bidang',
+												'$asuransi',
+												'$penyakit',
+												'$alasan',
+												'N',
 												'N'
 											)
 										");
@@ -752,6 +766,9 @@ require 'vendor/autoload.php';
 													echo'
 													<div class="alert alert-success" role="alert"><b>Success</b> Silahkan cek Email Anda untuk konfirmasi pendaftaran.</div>
 													';
+													echo "<script> 
+													window.location = '".base_url("#daftar")."';
+													</script>";
 												}
 											} catch (Exception $e) {
 												echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
@@ -795,14 +812,18 @@ require 'vendor/autoload.php';
                       	<input id="jurusan" name="jurusan" type="text" class="form-control" placeholder="Program Studi" required>
 					</div>
 					<div class="form-group">
-						<label for="ktm" style="float: left; color:white">Foto KTM <span style="color:red">*</span>  (Maks 100kb)</label>
+						<label for="peserta" style="float: left; color:white">Jenis peserta (Mahasiswa minimal semester 5)<span style="color:red">*</span></label>
+						<select id="peserta" name="peserta" class="form-control" required>
+							<option value="">Pilih jenis peserta</option>
+							<option value="Mahasiswa">Mahasiswa</option>
+							<option value="Dosen">Dosen Pendamping Lapangan</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="ktm" style="float: left; color:white">Foto KTM/KTP (mahasiswa/dosen) <span style="color:red">*</span>  (Maks 100kb)</label>
                       	<input id="ktm" name="ktm" type="file" class="form-control" required>
 						<span style="float: left;color:white">Format yang didukung: .jpeg, .jpg, .png</span><br>
 					</div>	
-					<div class="form-group">
-						<label for="minat" style="float: left; color:white">Minat <span style="color:red">*</span></label>
-                      	<input id="minat" name="minat" type="text" class="form-control" placeholder="ex: Tari, Seni, Pemrograman, Dll" required>
-					</div>
 					<div class="form-group">
 						<label for="nama" style="float: left; color:white">Nama <span style="color:red">*</span></label>
                       	<input id="nama" name="nama" type="text" class="form-control" placeholder="Nama Lengkap" required>
@@ -831,6 +852,10 @@ require 'vendor/autoload.php';
                       	<textarea id="alamat" name="alamat" type="text" class="form-control" placeholder="Alamat" required></textarea>
 					</div>
 					<div class="form-group">
+						<label for="minat" style="float: left; color:white">Minat <span style="color:red">*</span></label>
+                      	<input id="minat" name="minat" type="text" class="form-control" placeholder="ex: Tari, Seni, Pemrograman, Dll" required>
+					</div>
+					<div class="form-group">
 						<label for="bidang" style="float: left; color:white">Bidang yang diikuti <span style="color:red">*</span></label>
 						<select id="bidang" name="bidang" class="form-control" required>
 							<option value="">Pilih bidang yang diikuti</option>
@@ -840,6 +865,22 @@ require 'vendor/autoload.php';
 							<option value="Pariwisata">Pariwisata</option>
 							<option value="Ekonomi Kreatif">Ekonomi Kreatif</option>
 						</select>
+					</div>
+					<div class="form-group">
+						<label for="asuransi" style="float: left; color:white">Penggunaan asuransi <span style="color:red">*</span></label>
+						<select id="asuransi" name="asuransi" class="form-control" required>
+							<option value="">Pilih penggunaan asuransi</option>
+							<option value="BPJS">BPJS</option>
+							<option value="Non BPJS">Non BPJS</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="penyakit" style="float: left; color:white">Penyakit yang pernah/sedang di derita <span style="color:red">*</span></label>
+                      	<textarea id="penyakit" name="penyakit" type="text" class="form-control" placeholder="Penyakit yang pernah/sedang di derita." required></textarea>
+					</div>
+					<div class="form-group">
+						<label for="alasan" style="float: left; color:white">Alasan mengikuti KKN <span style="color:red">*</span></label>
+                      	<textarea id="alasan" name="alasan" type="text" class="form-control" placeholder="Alasan mengikuti KKN." required></textarea>
 					</div>
 					<div class="form-group">
                       	<input style="width:100%" name="submit" type="submit" class="btn btn-default py-3 px-5" value="Daftar">
@@ -902,7 +943,7 @@ require 'vendor/autoload.php';
 				  	<li><p>Sekretariat II :</p></li>
 	                <li><span class="icon icon-map-marker"></span><span class="text">Kantor LLLDIKTI Wilayah III, Jl.SMA Negri 14, RT.4/RW.9, Cawang, Kramatjati, Jakarta Timur 13630</span></li>
 	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+62 21 8090275</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@merajutnusantara2020.com</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">merajut.nusantara2019@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             </div>

@@ -45,14 +45,17 @@ include "config.php";
                     if ($jmluser > 0) {
                         $_SESSION['id']       = $data['id'];
                         $_SESSION['username']     = $data['username'];
-                        $_SESSION['nama']  = $data['name'];
+                        $_SESSION['nama']  = $data['nama'];
                         $_SESSION['password']     = $data['password'];
 
 
                         $_SESSION['timeout'] = time() + 1000;
                         $_SESSION['login'] = 1;
 
-                        header('location: index.php');
+                        // header('location: index.php');
+                        echo "<script>
+                        window.location = 'index.php';
+                        </script>";
                     } else {
                         echo '<div class="alert alert-danger" role="alert"><b>Sorry!</b> Username atau password salah.</div>';
                     }

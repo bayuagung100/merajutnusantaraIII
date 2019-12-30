@@ -41,6 +41,24 @@ function isi_datatables($no, $data, $link, $id, $edit = true, $hapus = true)
 		</tr>';
 }
 
+function isi_datatables_bukti($no, $data, $link, $id, $edit = true)
+{
+	echo '
+				<tr>
+					<td>' . $no . '</td>';
+	foreach ($data as $dt) {
+		echo '<td>' . $dt . '</td>';
+	}
+	echo '<td>';
+	if ($edit) {
+		echo '<a href="' . $link . '&show=form&id=' . $id . '" class="btn btn-success btn-sm">
+				<i class="fas fa-pencil-alt"></i> Detail
+			</a> ';
+	}
+	echo '</td>
+		</tr>';
+}
+
 function tutup_datatables($judul)
 {
 	echo '		

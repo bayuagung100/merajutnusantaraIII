@@ -24,7 +24,7 @@ switch ($show) {
                 </div>
     ';  
         
-        buka_datatables(array("Institusi","Jurusan","Nama","Email","Status Konfirmasi Email"));
+        buka_datatables(array("Institusi","Jurusan","Nama","Email","Status Konfirmasi Email", "Status Pembayaran"));
         $no = 1;
         $query = $mysqli->query("SELECT * FROM pendaftar ORDER BY id DESC");
         while ($data = $query->fetch_array()) {
@@ -33,12 +33,13 @@ switch ($show) {
             $nama = $data['nama'];
             $email = $data['email'];
             $status = $data['konfirmasi_email'];
-            isi_datatables($no, array($kampus, 
-            $jurusan, $nama, $email,$status), $link, $data['id']);
-            $no++;
+            $status_bayar = $data['status_pembayaran'];
+
+            isi_datatables($no, array($kampus, $jurusan, $nama, $email,$status, $status_bayar), $link, $data['id'], true, false);
+                $no++;
         }
 
-        tutup_datatables(array("Institusi","Jurusan","Nama","Email","Status Konfirmasi Email"));
+        tutup_datatables(array("Institusi","Jurusan","Nama","Email","Status Konfirmasi Email","Status Pembayaran"));
         echo '
             </div>
         </div>
@@ -65,21 +66,56 @@ switch ($show) {
                 </div>
                 <div class="card-body">';
                 buka_form($link, $data['id'], strtolower($aksi));
-                buat_textbox("Instansi/Kampus", "kampus", $data['kampus'],"Instansi/kampus");
-                buat_textbox("Jurusan", "jurusan", $data['jurusan'],"Jurusan");
-                buat_imagepicker_pendaftar("Foto KTM", "foto_ktm", $data['foto_ktm'],12);
-                buat_textbox("Minat", "minat", $data['minat'],"Minat");
-                buat_textbox("Nama Lengkap", "nama", $data['nama'],"Nama lengkap");
-                buat_textbox("Tanggal Lahir", "tanggal_lahir", $data['tanggal_lahir'],"Tanggal Lahir", "date");
-                buat_imagepicker_pendaftar("Foto Profile", "foto_profile", $data['foto_profile'],12);
-                buat_textbox("Email", "email", $data['email'],"Email");
+                buat_rowtabsbuka();
+                    buat_label("Instansi/Kampus :",2);
+                    buat_col($data['kampus'],4);
+                    buat_label("Program Studi :",2);
+                    buat_col($data['jurusan'],4);
+                buat_rowtabstutup();
+                buat_rowtabsbuka();
+                    buat_label("Jenis Peserta :",2);
+                    buat_col($data['jenis_peserta'],4);
+                    buat_label("Status Konfirmasi Email:",2);
+                    buat_col($data['konfirmasi_email'],4);
+                buat_rowtabstutup();
+                buat_tag("Foto KTM/KTP :", '<img src="../images/pendaftar/'.$data['foto_ktm'].'" alt="Foto KTM/KTP" style="width:100%;max-width:300px">');
 
-               
+                buat_rowtabsbuka();
+                    buat_label("Nama Lengkap :",2);
+                    buat_col($data['nama'],4);
+                    buat_label("Tempat dan Tanggal Lahir :",2);
+                    buat_col($data['tempat_lahir'].", ".$data['tanggal_lahir'],4);
+                buat_rowtabstutup();
+                buat_tag("Foto Profile :", '<img src="../images/pendaftar/'.$data['foto_profile'].'" alt="Foto Profile" style="width:100%;max-width:300px">');
+                
+                buat_rowtabsbuka();
+                    buat_label("No Hp :",2);
+                    buat_col($data['no_hp'],4);
+                    buat_label("Email :",2);
+                    buat_col($data['email'],4);
+                buat_rowtabstutup();
+                buat_rowtabsbuka();
+                    buat_label("Alamat :",2);
+                    buat_col($data['alamat'],4);
+                    buat_label("Minat :",2);
+                    buat_col($data['minat'],4);
+                buat_rowtabstutup();
+                buat_rowtabsbuka();
+                    buat_label("Bidang yang diikuti :",2);
+                    buat_col($data['bidang'],4);
+                    buat_label("Penggunaan asuransi:",2);
+                    buat_col($data['asuransi'],4);
+                buat_rowtabstutup();
+                buat_rowtabsbuka();
+                    buat_label("Penyakit yang pernah/sedang di derita :",2);
+                    buat_col($data['penyakit'],4);
+                    buat_label("Alasan mengikuti KKN :",2);
+                    buat_col($data['alasan'],4);
+                buat_rowtabstutup();
                 $list = array();
                 $list[] = array('val'=>'N', 'cap'=>'Tidak');
                 $list[] = array('val'=>'Y', 'cap'=>'Ya');
-                buat_combobox("Status Konfirmasi Email", "konfirmasi_email", $list, $data['konfirmasi_email']);
-                buat_tinymce("Alamat", "alamat", $data['alamat'],"Alamat","richtext");
+                buat_combobox("Status Pembayaran", "status_pembayaran", $list, $data['status_pembayaran']);
 
                 tutup_form($link);
         echo'                
@@ -91,17 +127,18 @@ switch ($show) {
         break;
         
     case "action":
-        $kampus = addslashes(ucwords($_POST['kampus']));
-        $jurusan = addslashes(ucwords($_POST['jurusan']));
-        $ktm = addslashes($_POST['foto_ktm']);
-        $minat = addslashes(ucwords($_POST['minat']));
-        $nama = addslashes(ucwords($_POST['nama']));
-        $tanggal_lahir = addslashes($_POST['tanggal_lahir']);
-        $foto_profile = addslashes($_POST['foto_profile']);
-        $hp = addslashes($_POST['hp']);
-        $email = addslashes($_POST['email']);
-        $alamat = addslashes($_POST['alamat']);
-        $konfirmasi = addslashes($_POST['konfirmasi_email']);
+        // $kampus = addslashes(ucwords($_POST['kampus']));
+        // $jurusan = addslashes(ucwords($_POST['jurusan']));
+        // $ktm = addslashes($_POST['foto_ktm']);
+        // $minat = addslashes(ucwords($_POST['minat']));
+        // $nama = addslashes(ucwords($_POST['nama']));
+        // $tanggal_lahir = addslashes($_POST['tanggal_lahir']);
+        // $foto_profile = addslashes($_POST['foto_profile']);
+        // $hp = addslashes($_POST['hp']);
+        // $email = addslashes($_POST['email']);
+        // $alamat = addslashes($_POST['alamat']);
+        // $konfirmasi = addslashes($_POST['konfirmasi_email']);
+        $status_pembayaran = addslashes($_POST['status_pembayaran']);
                
         // if ($_POST['aksi']=="tambah") {
         //     $query = $mysqli->query("INSERT INTO pembicara
@@ -120,17 +157,7 @@ switch ($show) {
         // }
         if ($_POST['aksi']=="edit") {
             $query = $mysqli->query("UPDATE pendaftar SET
-            kampus = '$kampus',
-            jurusan = '$jurusan',
-            foto_ktm = '$ktm',
-            minat = '$minat',
-            nama = '$nama',
-            tanggal_lahir = '$tanggal_lahir',
-            foto_profile = '$foto_profile',
-            no_hp = '$no_hp',
-            email = '$email',
-            alamat = '$alamat',
-            konfirmasi_email = '$konfirmasi'
+            status_pembayaran = '$status_pembayaran'
             WHERE id='$_POST[id]'
             ");
         }
