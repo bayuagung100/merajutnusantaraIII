@@ -265,6 +265,7 @@ require 'vendor/autoload.php';
 				$hp = $_POST['hp'];
 				$email = $_POST['email'];
 				$alamat = $_POST['alamat'];
+				$bidang = $_POST['bidang'];
 
 				$cek = $mysqli->query("SELECT * FROM pendaftar WHERE email='$email' ");
 				$jml = $cek->num_rows;
@@ -292,6 +293,7 @@ require 'vendor/autoload.php';
 												no_hp,
 												email,
 												alamat,
+												bidang,
 												konfirmasi_email
 											)
 											VALUES
@@ -307,6 +309,7 @@ require 'vendor/autoload.php';
 												'$hp',
 												'$email',
 												'$alamat',
+												'$bidang',
 												'N'
 											)
 										");
@@ -807,7 +810,7 @@ require 'vendor/autoload.php';
 					<div class="form-group">
 						<label for="tanggal_lahir" style="float: left; color:white">Tempat dan Tanggal Lahir <span style="color:red">*</span></label>
                       	<input id="tempat_lahir" name="tempat_lahir" type="text" class="form-control" style="max-width:230px;float:left;margin-right:5px" placeholder="Tempat Lahir" required>
-						  <input id="tanggal_lahir" name="tanggal_lahir" type="date" class="form-control" style="max-width:170px;float:left" required>
+						<input id="tanggal_lahir" name="tanggal_lahir" type="date" class="form-control" style="max-width:170px;float:left" required>
 						
 					</div>
 					<div class="form-group">
@@ -828,8 +831,20 @@ require 'vendor/autoload.php';
                       	<textarea id="alamat" name="alamat" type="text" class="form-control" placeholder="Alamat" required></textarea>
 					</div>
 					<div class="form-group">
+						<label for="bidang" style="float: left; color:white">Bidang yang diikuti <span style="color:red">*</span></label>
+						<select id="bidang" name="bidang" class="form-control" required>
+							<option value="">Pilih bidang yang diikuti</option>
+							<option value="Pemuda dan Olahraga">Pemuda dan Olahraga</option>
+							<option value="Pendidikan">Pendidikan</option>
+							<option value="Kesehatan">Kesehatan</option>
+							<option value="Pariwisata">Pariwisata</option>
+							<option value="Ekonomi Kreatif">Ekonomi Kreatif</option>
+						</select>
+					</div>
+					<div class="form-group">
                       	<input style="width:100%" name="submit" type="submit" class="btn btn-default py-3 px-5" value="Daftar">
 					</div>
+					
                   </form>
                 </div>
               </div>
@@ -848,9 +863,9 @@ require 'vendor/autoload.php';
               <h2 class="ftco-heading-2">Merajut Nusantara III</h2>
               <p>Tak ada yang lebih baik antara suku yang satu dengan suku lainnya. Semua sama, satu negara, satu bangsa, menjunjung tinggi satu bahasa, yaitu Indonesia.</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-			  	<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-				<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+			  	<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a><span style="font-size:26px;padding-left: 10px;">kkntematikIII2020</span></li><br>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a><span style="font-size:26px;padding-left: 10px;">kkntematikIII2020</span></li><br>
+				<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a><span style="font-size:26px;padding-left: 10px;">kkntemetikIII2020</span></li>
               </ul>
             </div>
           </div>
@@ -924,7 +939,6 @@ require 'vendor/autoload.php';
   <script src="<?php echo base_url("website/");?>js/bootstrap-datepicker.js"></script>
   <script src="<?php echo base_url("website/");?>js/jquery.timepicker.min.js"></script>
   <script src="<?php echo base_url("website/");?>js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="<?php echo base_url("website/");?>js/google-map.js"></script>
   <script src="<?php echo base_url("website/");?>js/main.js"></script>
     
