@@ -236,7 +236,9 @@ require 'vendor/autoload.php';
             <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
               <h2>Siap untuk ikut ?</h2>
               <p>Daftarkan diri anda sekarang.<br>
-			  Tanda (<span style="color:red">*</span>) wajib diisi.</p>
+			  Tanda (<span style="color:red">*</span>) wajib diisi.<br/>
+			  Syarat & Ketentuan lihat <a href="<?php echo base_url("SURAT%20PEMBERITAHUAN%20KKN%20PTS.pdf");?>" target="_blank" style="color:white"><b><u>disini.</u></b></a>
+			  </p>
 			  <?php
 			  if(isset($_POST['submit'])=="Daftar"){
 				$kampus = ucwords($_POST['kampus']);
