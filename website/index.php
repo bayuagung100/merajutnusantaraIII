@@ -35,6 +35,20 @@ require 'vendor/autoload.php';
     <link rel="stylesheet" href="<?php echo base_url("website/");?>css/flaticon.css">
     <link rel="stylesheet" href="<?php echo base_url("website/");?>css/icomoon.css">
     <link rel="stylesheet" href="<?php echo base_url("website/");?>css/style.css">
+
+	<style>
+	.surat-edaran{
+		width: 100%;
+		max-width: 600px;
+		height: auto;
+	}
+	@media screen and (max-width: 768px) {
+		.surat-edaran{
+			width: 100%;
+			height: auto;
+		}
+	}
+	</style>
   </head>
   <body>
     
@@ -81,6 +95,7 @@ require 'vendor/autoload.php';
 	  		<div class="row justify-content-center pb-3">
 				<div class="col-md-12 text-center heading-section ftco-animate">
 					<!-- <span class="subheading">Speaker</span> -->
+					<img src="<?php echo base_url("images/icon/Surat-Edaran-KKN-Tematik-Merajut-Nusantara-2020.png");?>" class="surat-edaran"/>
 					<h2 class="mb-4">Kontribusi Peserta <span>dan</span> Perguruan Tinggi</h2>
 					<h4 >Masing-masing peserta dikenakan biaya sebesar <b style="color: #6a76fe;">Rp 3.300.000,- /Orang.</b></h4>
 					<h5>
