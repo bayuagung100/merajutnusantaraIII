@@ -150,6 +150,52 @@ require 'vendor/autoload.php';
 					</div>      
 				</div>
 			</div>
+
+			<div class="row d-flex text-center">
+				<div class="col-md-12 heading-section ftco-animate">
+					<h2 class="mb-4">Peserta Terdaftar</h2>
+				</div>
+				<div class="col-md-3 ftco-animate">
+					<div class="media block-6 services d-block">
+						<div class="media-body">
+							<h3 class="heading mb-3">Pemuda dan Olahraga</h3>
+							<p id="count_po" style="font-size:38px;color:#6b76ff">0</p>
+						</div>
+					</div>      
+				</div>
+				<div class="col-md-2 ftco-animate">
+					<div class="media block-6 services d-block">
+						<div class="media-body">
+							<h3 class="heading mb-3">Pendidikan</h3>
+							<p id="count_pendidikan" style="font-size:38px;color:#6b76ff">0</p>
+						</div>
+					</div>    
+				</div>
+				<div class="col-md-2 ftco-animate">
+					<div class="media block-6 services d-block">
+						<div class="media-body">
+							<h3 class="heading mb-3">Kesehatan</h3>
+							<p id="count_kesehatan" style="font-size:38px;color:#6b76ff">0</p>
+						</div>
+					</div>      
+				</div>
+				<div class="col-md-2 ftco-animate">
+					<div class="media block-6 services d-block">
+						<div class="media-body">
+							<h3 class="heading mb-3">Pariwisata</h3>
+							<p id="count_pariwisata" style="font-size:38px;color:#6b76ff">0</p>
+						</div>
+					</div>      
+				</div>
+				<div class="col-md-3 ftco-animate">
+					<div class="media block-6 services d-block">
+						<div class="media-body">
+							<h3 class="heading mb-3">Ekonomi Kreatif</h3>
+							<p id="count_ek" style="font-size:38px;color:#6b76ff">0</p>
+						</div>
+					</div>      
+				</div>
+			</div>
       </div>
     </section>
 
@@ -999,6 +1045,63 @@ require 'vendor/autoload.php';
   <script src="<?php echo base_url("website/");?>js/scrollax.min.js"></script>
   <script src="<?php echo base_url("website/");?>js/google-map.js"></script>
   <script src="<?php echo base_url("website/");?>js/main.js"></script>
-    
+	
+	<script>
+  	$(document).ready(function() {
+        setInterval(function() {
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url("website/"); ?>ajax/count-po.php',
+                success: function(html) {
+                    $('#count_po').html(html);
+                }
+            });
+        }, 1000);
+	});
+	$(document).ready(function() {
+        setInterval(function() {
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url("website/"); ?>ajax/count-pendidikan.php',
+                success: function(html) {
+                    $('#count_pendidikan').html(html);
+                }
+            });
+        }, 1000);
+	});
+	$(document).ready(function() {
+        setInterval(function() {
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url("website/"); ?>ajax/count-kesehatan.php',
+                success: function(html) {
+                    $('#count_kesehatan').html(html);
+                }
+            });
+        }, 1000);
+	});
+	$(document).ready(function() {
+        setInterval(function() {
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url("website/"); ?>ajax/count-pariwisata.php',
+                success: function(html) {
+                    $('#count_pariwisata').html(html);
+                }
+            });
+        }, 1000);
+	});
+	$(document).ready(function() {
+        setInterval(function() {
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url("website/"); ?>ajax/count-ek.php',
+                success: function(html) {
+                    $('#count_ek').html(html);
+                }
+            });
+        }, 1000);
+    });
+    </script>
   </body>
 </html>

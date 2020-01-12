@@ -1,15 +1,15 @@
 <?php
 //localpc
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $database = "merajut_nusantara";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "merajut_nusantara";
 
 //server
-$servername = "localhost";
-$username = "merd6715";
-$password = "5pGa98Bk9B6B54";
-$database = "merd6715_nusantara";
+// $servername = "localhost";
+// $username = "merd6715";
+// $password = "5pGa98Bk9B6B54";
+// $database = "merd6715_nusantara";
  
 // Create connection
 $mysqli = new mysqli($servername, $username, $password, $database);
