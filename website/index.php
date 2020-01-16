@@ -154,7 +154,10 @@ require 'vendor/autoload.php';
 			<div class="row d-flex text-center">
 				<div class="col-md-12 heading-section ftco-animate">
 					<h2 class="mb-4">Peserta Terdaftar</h2>
+					<h4>Pendaftaran dan pembayaran diperpanjang sampai tanggal 30 April 2020</h4>
+					<br/>
 				</div>
+				
 				<div class="col-md-3 ftco-animate">
 					<div class="media block-6 services d-block">
 						<div class="media-body">
