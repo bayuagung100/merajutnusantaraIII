@@ -65,11 +65,8 @@ if (isset($_GET['email'])) {
 					<h5>
 						Dana dapat disalurkan ke <b>No.Rekening:</b>
 						<ul style="list-style:none">
-							<li>
-								<b style="color: #5ed964;">BNI (0899162399 a.n Roesfiansjah Rasjidin)</b>
-							</li>
-							<li>
-								<b style="color: #5ed964;">BCA (4740816069 a.n Roesfiansjah Rasjidin)</b>
+              <li>
+								<b style="color: #5ed964;">Mandiri (1650027555888 a.n Yayasan Pendidikan Kemala Bangsa)</b>
 							</li>
 						</ul>
 					</h5>
@@ -358,8 +355,7 @@ if (isset($_GET['email'])) {
 						          <label for="bank_tujuan" style="float: left; color:black">Bank Tujuan <span style="color:red">*</span></label>
                       <select id="bank_tujuan" name="bank_tujuan" class="form-control" required>
                         <option value="">Pilih bank tujuan</option>
-                        <option value="BNI (0899162399 a.n Roesfiansjah Rasjidin)">BNI (0899162399 a.n Roesfiansjah Rasjidin)</option>
-                        <option value="BCA (4740816069 a.n Roesfiansjah Rasjidin)">BCA (4740816069 a.n Roesfiansjah Rasjidin)</option>
+                        <option value="Mandiri (1650027555888 a.n Yayasan Pendidikan Kemala Bangsa)">Mandiri (1650027555888 a.n Yayasan Pendidikan Kemala Bangsa)</option>
                       </select>
 					          </div>
                     <div class="form-group">

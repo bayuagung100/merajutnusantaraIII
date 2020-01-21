@@ -102,10 +102,7 @@ require 'vendor/autoload.php';
 						Dana dapat disalurkan ke <b>No.Rekening:</b>
 						<ul style="list-style:none">
 							<li>
-								<b style="color: #5ed964;">BNI (0899162399 a.n Roesfiansjah Rasjidin)</b>
-							</li>
-							<li>
-								<b style="color: #5ed964;">BCA (4740816069 a.n Roesfiansjah Rasjidin)</b>
+								<b style="color: #5ed964;">Mandiri (1650027555888 a.n Yayasan Pendidikan Kemala Bangsa)</b>
 							</li>
 						</ul>
 					</h5>
@@ -302,6 +299,8 @@ require 'vendor/autoload.php';
               <p>Daftarkan diri anda sekarang.<br>
 			  Tanda (<span style="color:red">*</span>) wajib diisi.<br/>
 			  Syarat & Ketentuan lihat <a href="<?php echo base_url("SURAT%20PEMBERITAHUAN%20KKN%20PTS.pdf");?>" target="_blank" style="color:white"><b><u>disini.</u></b></a>
+			  <br>
+			  Term of Reference lihat <a href="<?php echo base_url("TERM%20OF%20REFERENCE.pdf");?>" target="_blank" style="color:white"><b><u>disini.</u></b></a>
 			  </p>
 			  <?php
 			  if(isset($_POST['submit'])=="Daftar"){
