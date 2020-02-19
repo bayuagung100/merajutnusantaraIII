@@ -7558,7 +7558,9 @@ h1, h2, h3, h4, h5,
     font-size: 38px;
     font-weight: 200;
     border-left: 1px solid rgba(0, 0, 0, 0.05);
-    color: #6b76ff; }
+    /* color: #6b76ff;  */
+    color: #000; 
+  }
     #timer .time:first-child {
       border-left: transparent; }
     #timer .time span {
